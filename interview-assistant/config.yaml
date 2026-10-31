@@ -1,0 +1,43 @@
+﻿audio:
+  loopback: true
+  sample_rate: 16000
+  vad_threshold: 0.5
+  silence_duration: 1.2
+  chunk_duration: 0.2
+
+asr:
+  provider: sensevoice
+  device: cpu
+  language: "zh"
+  vad_threshold: 0.5
+  min_speech_duration: 0.3
+  max_speech_duration: 15
+  model_size: "base"
+
+translation:
+  target_language: "zh"
+  api_base: "https://dashscope.aliyuncs.com/compatible-mode/v1"   #API Base（也称 Base URL、api_base）是所有 API 请求的根路径，用来告诉客户端“请求应该发到哪台服务器、哪个版本”。（这里用的是阿里云百炼，需要根据自己需求更改引号内容）
+  api_key: "*****"    # （替换成你的api）
+  model: "qwen-flash"  #（此处需要修改）
+
+llm:
+  enable: true
+  api_key: "******"  #（此处需要修改）
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1" #（此处需要修改）
+  model: "qwen-flash"#（此处需要修改）
+  temperature: 0.3
+  max_tokens: 600
+  system_prompt: >
+    只能使用简历里面真实经历作答，严禁编造项目、实习经历。回答口语化，适合面试口头口述，控制在100‑200字以内。====简历开始====   （此处写你的简历文本） ====简历结束====
+
+subtitle:
+  always_on_top: true
+  click_through: true
+  font_size: 14
+  window_x: 100
+  window_y: 100
+  window_width: 520
+  window_height: 300
+
+global:
+  debug_log: false
